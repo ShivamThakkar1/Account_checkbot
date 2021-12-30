@@ -11,7 +11,7 @@
     "repository": "https://github.com/akashrchandran/Account_checkbot/",
     "success_url": "/",
     "env": {
-        "TG_BOT_TOKEN": {
+        "BOT_TOKEN": {
             "description": "Get your token from @BotFather and paste it here."
         }
     },
