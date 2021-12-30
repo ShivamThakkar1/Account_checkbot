@@ -2,7 +2,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ( CommandHandler, Filters, MessageHandler, Updater)
 from message import Editmessage, Sendmessage, logger
 from Checks.Altbalaji import altbalaji_helper
-from Checks.hoichoi import hoichoi_helper
+from Checks.sharingtools import sharingtools_helper
 from Checks.voot import Voot_helper
 from Checks.zee5 import zee_helper
 from Miscellaneous.Scraper import pastebin, text_scraper, throwbin
@@ -17,7 +17,7 @@ startmessage = [[
 		),
         InlineKeyboardButton(
 			"DEV 👷🏻",
-			url='https://t.me/Amalbiju154'
+			url='https://t.me/mensarena'
 		)
         ]]
 
@@ -65,10 +65,10 @@ def duty(update, context):
         if '\n' in text[1]:
             simple = combos_spilt(text[1])
             for i in simple:
-                hoichoi_helper(chat_id, i)
+                sharingtools_helper(chat_id, i)
             Sendmessage(chat_id, 'Completed')
         else:
-            hoichoi_helper(chat_id, text[1])
+            sharingtools_helper(chat_id, text[1])
     elif text[0] == '!zee':
         if '\n' in text[1]:
             simple = combos_spilt(text[1])
