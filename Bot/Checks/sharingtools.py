@@ -12,7 +12,7 @@ soup = BeautifulSoup(req.content, "html.parser")
 crsf_token = soup.find("meta", {"name": "csrf-token"})['content']
 
 
-def Sun_helper(chat_id, combo):
+def sharingtools_helper(chat_id, combo):
     status = Sendmessage(chat_id, '<i>Checking...</i>')
     try:
         combo_split = combo.split(':')
