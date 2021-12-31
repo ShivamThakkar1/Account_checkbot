@@ -15,11 +15,11 @@ def sharingtools_helper(chat_id, combo):
     except IndexError:
         return Editmessage(chat_id, 'Enter Valid Combo😡😡', status)
     action= 'login'   
-    email= f'"username":"{inpumail}"'
+    username= f'"username":"{inpumail}"'
     password = f'"password":"{inpupass}"'
     session_request = requests.Session()
     url = 'https://www.sharingtools.services/login'
-    payload = '{%action}' %(email, password)
+    payload = '{%s,%s}' %(username, password)
     response = session_request.post(url, data=payload)
     result = response.json()
     if response.status_code != 200:
