@@ -19,7 +19,7 @@ def sharingtools_helper(chat_id, combo):
     password = f'"password":"{inpupass}"'
     session_request = requests.Session()
     url = 'https://www.sharingtools.services/login'
-    payload = '{%s,%s}' %(action, email, password)
+    payload = '{%s,%s}' %(email, password)
     response = session_request.post(url, data=payload)
     result = response.json()
     if response.status_code != 200:
