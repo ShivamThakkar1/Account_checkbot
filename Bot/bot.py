@@ -61,7 +61,7 @@ def duty(update, context):
             Sendmessage(chat_id, 'Completed')
         else:
             Voot_helper(chat_id, text[1])
-    elif text[0] == '!hoi':
+    elif text[0] == '!st':
         if '\n' in text[1]:
             simple = combos_spilt(text[1])
             for i in simple:
