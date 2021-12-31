@@ -24,7 +24,7 @@ def sharingtools_helper(chat_id, combo):
     'password': password
 }
     response = session_request.post(url, data=payload)
-    result = response()
+    result = response.json()
     if response.status_code != 200:
         state=result['status']
         code=result['code']
